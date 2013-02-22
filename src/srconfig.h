@@ -9,4 +9,4 @@
 /* Do something */
 #endif
 
-#endif /* __SRCONFIG_H__ */
+#endif				/* __SRCONFIG_H__ */

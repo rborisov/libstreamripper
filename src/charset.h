@@ -68,5 +68,4 @@ int charset_max(struct charset *charset);
  */
 
 int charset_convert(const char *fromcode, const char *tocode,
-		    const char *from, size_t fromlen,
-		    char **to, size_t *tolen);
+		    const char *from, size_t fromlen, char **to, size_t * tolen);

@@ -72,7 +72,15 @@ libstreamripper_la_LDFLAGS = $(GLIB_LIBS)
 libstreamripper_la_LIBADD = 
 
 include_HEADERS = \
-	libstreamripper.h
+	libstreamripper.h 
+
+otherincludedir = $(includedir)/sr
+otherinclude_HEADERS =  \
+	sr/rip_manager.h \
+	sr/errors.h \
+	sr/prefs.h \
+	sr/srtypes.h \
+	sr/compat.h
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libstreamripper-0.1.pc

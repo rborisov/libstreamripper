@@ -18,32 +18,19 @@
 #ifndef __FINDSEP_H__
 #define __FINDSEP_H__
 
-#include "srtypes.h"
-#include "errors.h"
+#include "sr/srtypes.h"
+#include "sr/errors.h"
 
 error_code
-findsep_silence (const char* mpgbuf, 
-		 long mpgsize, 
-		 long len_to_sw,
-		 long searchwindow,
-		 long silence_length, 
-		 long padding1,
-		 long padding2,
-		 u_long* pos1, 
-		 u_long* pos2
-		 );
+findsep_silence(const char *mpgbuf,
+		long mpgsize,
+		long len_to_sw,
+		long searchwindow, long silence_length, long padding1, long padding2, u_long * pos1, u_long * pos2);
 error_code
-findsep_silence_2 (const char* mpgbuf, 
-		 long mpgsize, 
-		 long len_to_sw,
-		 long searchwindow,
-		 long silence_length, 
-		 long padding1,
-		 long padding2,
-		 u_long* pos1, 
-		 u_long* pos2
-		 );
-error_code
-find_bitrate (unsigned long* bitrate, const char* mpgbuf, long mpgsize);
+findsep_silence_2(const char *mpgbuf,
+		  long mpgsize,
+		  long len_to_sw,
+		  long searchwindow, long silence_length, long padding1, long padding2, u_long * pos1, u_long * pos2);
+error_code find_bitrate(unsigned long *bitrate, const char *mpgbuf, long mpgsize);
 
-#endif //__FINDSEP_H__
+#endif				//__FINDSEP_H__

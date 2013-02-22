@@ -49,8 +49,8 @@ typedef int error_code;
 #define SR_ERROR_CANT_BIND_ON_PORT		- 0x1F
 #define SR_ERROR_HOST_NOT_CONNECTED		- 0x20
 #define SR_ERROR_HTTP_404_ERROR			- 0x21
-#define SR_ERROR_HTTP_401_ERROR			- 0x22	
-#define SR_ERROR_HTTP_502_ERROR			- 0x23  // Connection Refused
+#define SR_ERROR_HTTP_401_ERROR			- 0x22
+#define SR_ERROR_HTTP_502_ERROR			- 0x23	// Connection Refused
 #define SR_ERROR_CANT_CREATE_FILE		- 0x24
 #define SR_ERROR_CANT_WRITE_TO_FILE		- 0x25
 #define SR_ERROR_CANT_CREATE_DIR		- 0x26
@@ -76,23 +76,21 @@ typedef int error_code;
 #define SR_ERROR_PROGRAM_ERROR			- 0x3a
 #define SR_ERROR_TIMEOUT                        - 0x3b
 #define SR_ERROR_SELECT_FAILED                  - 0x3c
-#define SR_ERROR_REQUIRED_WINDOW_EMPTY          - 0x3d  // Not an error
+#define SR_ERROR_REQUIRED_WINDOW_EMPTY          - 0x3d	// Not an error
 #define SR_ERROR_CANT_BIND_ON_INTERFACE		- 0x3e
 #define SR_ERROR_NO_OGG_PAGES_FOR_RELAY		- 0x3f
 #define SR_ERROR_CANT_PARSE_PLS	                - 0x40
 #define SR_ERROR_CANT_PARSE_M3U	                - 0x41
 #define SR_ERROR_CANT_CREATE_SOCKET	        - 0x42
 #define SR_ERROR_CREATE_PIPE_FAILED	        - 0x43
-#define SR_ERROR_ABORT_PIPE_SIGNALLED           - 0x44  // Not an error
+#define SR_ERROR_ABORT_PIPE_SIGNALLED           - 0x44	// Not an error
 
-typedef struct ERROR_INFOst
-{
-    char error_str[MAX_ERROR_STR];
-    error_code error_code;
+typedef struct ERROR_INFOst {
+	char error_str[MAX_ERROR_STR];
+	error_code error_code;
 } ERROR_INFO;
 
-
-void errors_init (void);
-char* errors_get_string (error_code code);
+void errors_init(void);
+char *errors_get_string(error_code code);
 
 #endif

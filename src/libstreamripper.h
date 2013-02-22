@@ -1,6 +1,6 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*- */
 /*
- * lib.h
+ * libstreamripper.h
  * Copyright (C) 2013 Hans Oesterholt <debian@oesterholt.net>
  * 
  * libstreamripper is free software: you can redistribute it and/or modify it
@@ -17,4 +17,13 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-int libstreamripper_func (void);
+#ifndef __LIBSTREAMRIPPER_H__
+#define __LIBSTREAMRIPPER_H__
+
+#include <sr/compat.h>
+#include <sr/srtypes.h>
+#include <sr/prefs.h>
+#include <sr/errors.h>
+#include <sr/rip_manager.h>
+
+#endif
