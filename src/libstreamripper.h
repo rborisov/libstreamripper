@@ -20,6 +20,15 @@
 #ifndef __LIBSTREAMRIPPER_H__
 #define __LIBSTREAMRIPPER_H__
 
+#ifdef __ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__
+  #define __UNIX__ 1
+#else
+ #ifdef __linux
+   #define __UNIX__ 1
+ #endif
+#endif
+
+
 #include <sr/compat.h>
 #include <sr/srtypes.h>
 #include <sr/prefs.h>
