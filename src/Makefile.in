@@ -332,7 +332,7 @@ otherinclude_HEADERS = \
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libstreamripper-0.1.pc
 EXTRA_DIST = \
-	libstreamripper-0.1.pc.in
+	libstreamripper.pc.in
 
 all: all-am
 
@@ -368,7 +368,7 @@ $(top_srcdir)/configure:  $(am__configure_deps)
 $(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(am__aclocal_m4_deps):
-libstreamripper-0.1.pc: $(top_builddir)/config.status $(srcdir)/libstreamripper-0.1.pc.in
+libstreamripper.pc: $(top_builddir)/config.status $(srcdir)/libstreamripper.pc.in
 	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@
 install-libLTLIBRARIES: $(lib_LTLIBRARIES)
 	@$(NORMAL_INSTALL)
