@@ -82,7 +82,7 @@ otherinclude_HEADERS =  \
 	sr/compat.h
 
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = libstreamripper-0.1.pc
+pkgconfig_DATA = libstreamripper.pc
 
 EXTRA_DIST = \
-	libstreamripper-0.1.pc.in
+	libstreamripper.pc.in
