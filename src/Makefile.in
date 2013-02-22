@@ -81,9 +81,9 @@ LTLIBRARIES = $(lib_LTLIBRARIES)
 libstreamripper_la_DEPENDENCIES =
 am_libstreamripper_la_OBJECTS = argv.lo cbuf2.lo charset.lo debug.lo \
 	errors.lo external.lo filelib.lo findsep.lo findsep2.lo \
-	http.lo iconvert.lo ictest.lo mchar.lo parse.lo prefs.lo \
-	relaylib.lo ripaac.lo rip_manager.lo ripogg.lo ripstream.lo \
-	socklib.lo threadlib.lo utf8.lo
+	http.lo iconvert.lo mchar.lo parse.lo prefs.lo relaylib.lo \
+	ripaac.lo rip_manager.lo ripogg.lo ripstream.lo socklib.lo \
+	threadlib.lo utf8.lo
 libstreamripper_la_OBJECTS = $(am_libstreamripper_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -290,7 +290,6 @@ libstreamripper_la_SOURCES = \
 	http.c \
 	http.h \
 	iconvert.c \
-	ictest.c \
 	list.h \
 	mchar.c \
 	mchar.h \
@@ -422,7 +421,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/findsep2.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/http.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/iconvert.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ictest.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mchar.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/parse.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/prefs.Plo@am__quote@

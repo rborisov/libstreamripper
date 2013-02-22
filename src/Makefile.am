@@ -40,7 +40,6 @@ libstreamripper_la_SOURCES = \
 	http.c \
 	http.h \
 	iconvert.c \
-	ictest.c \
 	list.h \
 	mchar.c \
 	mchar.h \
