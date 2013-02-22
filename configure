@@ -12049,7 +12049,7 @@ CPPFLAGS="-D__UNIX__"
 
 
 
-ac_config_files="$ac_config_files Makefile src/libstreamripper-0.1.pc src/Makefile"
+ac_config_files="$ac_config_files Makefile src/libstreamripper.pc src/Makefile"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -13061,7 +13061,7 @@ do
     "depfiles") CONFIG_COMMANDS="$CONFIG_COMMANDS depfiles" ;;
     "libtool") CONFIG_COMMANDS="$CONFIG_COMMANDS libtool" ;;
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
-    "src/libstreamripper-0.1.pc") CONFIG_FILES="$CONFIG_FILES src/libstreamripper-0.1.pc" ;;
+    "src/libstreamripper.pc") CONFIG_FILES="$CONFIG_FILES src/libstreamripper.pc" ;;
     "src/Makefile") CONFIG_FILES="$CONFIG_FILES src/Makefile" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;

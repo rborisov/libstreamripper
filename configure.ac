@@ -49,6 +49,6 @@ AC_SUBST(CPPFLAGS)
 
 AC_OUTPUT([
 Makefile
-src/libstreamripper-0.1.pc
+src/libstreamripper.pc
 src/Makefile
 ])
