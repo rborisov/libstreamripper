@@ -12,9 +12,6 @@ libstreamripperdoc_DATA = \
 	INSTALL\
 	NEWS
 
-libstreamripper_CFLAGS = $(GLIB_CFLAGS)
-libstreamripper_LIBS = $(GLIB_LIBS)
-
 
 EXTRA_DIST = $(libstreamripperdoc_DATA)
 

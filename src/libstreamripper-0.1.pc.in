@@ -8,6 +8,6 @@ includedir=@includedir@/liblibstreamripper-0.1
 Name: liblibstreamripper
 Description: Sample library created by Anjuta project wizard.
 Version: @VERSION@
-Requires: 
+Requires: mad id3tag glib-2.0
 Libs: -L${libdir} -llibstreamripper
 Cflags: -I${includedir}

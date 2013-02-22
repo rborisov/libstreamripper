@@ -2527,16 +2527,32 @@ m4trace:configure.ac:21: -1- PKG_CHECK_EXISTS([glib-2.0 >= 2.16.1], [pkg_cv_[]GL
 m4trace:configure.ac:21: -1- PKG_CHECK_EXISTS([glib-2.0 >= 2.16.1], [pkg_cv_[]GLIB_LIBS=`$PKG_CONFIG --[]libs "glib-2.0 >= 2.16.1" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
 m4trace:configure.ac:21: -1- _PKG_SHORT_ERRORS_SUPPORTED
-m4trace:configure.ac:24: -1- m4_pattern_allow([^CPPFLAGS$])
-m4trace:configure.ac:28: -1- _m4_warn([obsolete], [AC_OUTPUT should be used without arguments.
+m4trace:configure.ac:22: -1- PKG_CHECK_MODULES([MAD], [mad >= 0.15])
+m4trace:configure.ac:22: -1- m4_pattern_allow([^MAD_CFLAGS$])
+m4trace:configure.ac:22: -1- m4_pattern_allow([^MAD_LIBS$])
+m4trace:configure.ac:22: -1- PKG_CHECK_EXISTS([mad >= 0.15], [pkg_cv_[]MAD_CFLAGS=`$PKG_CONFIG --[]cflags "mad >= 0.15" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
+m4trace:configure.ac:22: -1- PKG_CHECK_EXISTS([mad >= 0.15], [pkg_cv_[]MAD_LIBS=`$PKG_CONFIG --[]libs "mad >= 0.15" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
+m4trace:configure.ac:22: -1- _PKG_SHORT_ERRORS_SUPPORTED
+m4trace:configure.ac:23: -1- PKG_CHECK_MODULES([ID3], [id3tag >= 0.15])
+m4trace:configure.ac:23: -1- m4_pattern_allow([^ID3_CFLAGS$])
+m4trace:configure.ac:23: -1- m4_pattern_allow([^ID3_LIBS$])
+m4trace:configure.ac:23: -1- PKG_CHECK_EXISTS([id3tag >= 0.15], [pkg_cv_[]ID3_CFLAGS=`$PKG_CONFIG --[]cflags "id3tag >= 0.15" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
+m4trace:configure.ac:23: -1- PKG_CHECK_EXISTS([id3tag >= 0.15], [pkg_cv_[]ID3_LIBS=`$PKG_CONFIG --[]libs "id3tag >= 0.15" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
+m4trace:configure.ac:23: -1- _PKG_SHORT_ERRORS_SUPPORTED
+m4trace:configure.ac:26: -1- m4_pattern_allow([^CPPFLAGS$])
+m4trace:configure.ac:30: -1- _m4_warn([obsolete], [AC_OUTPUT should be used without arguments.
 You should run autoupdate.], [])
-m4trace:configure.ac:28: -1- m4_pattern_allow([^LIB@&t@OBJS$])
-m4trace:configure.ac:28: -1- m4_pattern_allow([^LTLIBOBJS$])
-m4trace:configure.ac:28: -1- AM_CONDITIONAL([am__EXEEXT], [test -n "$EXEEXT"])
-m4trace:configure.ac:28: -1- m4_pattern_allow([^am__EXEEXT_TRUE$])
-m4trace:configure.ac:28: -1- m4_pattern_allow([^am__EXEEXT_FALSE$])
-m4trace:configure.ac:28: -1- _AM_SUBST_NOTMAKE([am__EXEEXT_TRUE])
-m4trace:configure.ac:28: -1- _AM_SUBST_NOTMAKE([am__EXEEXT_FALSE])
-m4trace:configure.ac:28: -1- _AC_AM_CONFIG_HEADER_HOOK(["$ac_file"])
-m4trace:configure.ac:28: -1- _AM_OUTPUT_DEPENDENCY_COMMANDS
-m4trace:configure.ac:28: -1- _LT_PROG_LTMAIN
+m4trace:configure.ac:30: -1- m4_pattern_allow([^LIB@&t@OBJS$])
+m4trace:configure.ac:30: -1- m4_pattern_allow([^LTLIBOBJS$])
+m4trace:configure.ac:30: -1- AM_CONDITIONAL([am__EXEEXT], [test -n "$EXEEXT"])
+m4trace:configure.ac:30: -1- m4_pattern_allow([^am__EXEEXT_TRUE$])
+m4trace:configure.ac:30: -1- m4_pattern_allow([^am__EXEEXT_FALSE$])
+m4trace:configure.ac:30: -1- _AM_SUBST_NOTMAKE([am__EXEEXT_TRUE])
+m4trace:configure.ac:30: -1- _AM_SUBST_NOTMAKE([am__EXEEXT_FALSE])
+m4trace:configure.ac:30: -1- _AC_AM_CONFIG_HEADER_HOOK(["$ac_file"])
+m4trace:configure.ac:30: -1- _AM_OUTPUT_DEPENDENCY_COMMANDS
+m4trace:configure.ac:30: -1- _LT_PROG_LTMAIN

@@ -612,6 +612,16 @@ ac_subst_vars='am__EXEEXT_FALSE
 am__EXEEXT_TRUE
 LTLIBOBJS
 LIBOBJS
+VORBISENC_LIBS
+VORBISFILE_LIBS
+OGG_LIBS
+OGG_CFLAGS
+VORBIS_LIBS
+VORBIS_CFLAGS
+ID3_LIBS
+ID3_CFLAGS
+MAD_LIBS
+MAD_CFLAGS
 GLIB_LIBS
 GLIB_CFLAGS
 PKG_CONFIG_LIBDIR
@@ -741,6 +751,14 @@ enable_fast_install
 with_gnu_ld
 with_sysroot
 enable_libtool_lock
+with_ogg
+with_ogg_libraries
+with_ogg_includes
+enable_oggtest
+with_vorbis
+with_vorbis_libraries
+with_vorbis_includes
+enable_vorbistest
 '
       ac_precious_vars='build_alias
 host_alias
@@ -755,7 +773,11 @@ PKG_CONFIG
 PKG_CONFIG_PATH
 PKG_CONFIG_LIBDIR
 GLIB_CFLAGS
-GLIB_LIBS'
+GLIB_LIBS
+MAD_CFLAGS
+MAD_LIBS
+ID3_CFLAGS
+ID3_LIBS'
 
 
 # Initialize some variables set by options.
@@ -1385,6 +1407,8 @@ Optional Features:
   --enable-fast-install[=PKGS]
                           optimize for fast installation [default=yes]
   --disable-libtool-lock  avoid locking (might break parallel builds)
+  --disable-oggtest       Do not try to compile and run a test Ogg program
+  --disable-vorbistest    Do not try to compile and run a test Vorbis program
 
 Optional Packages:
   --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
@@ -1394,6 +1418,19 @@ Optional Packages:
   --with-gnu-ld           assume the C compiler uses GNU ld [default=no]
   --with-sysroot=DIR Search for dependent libraries within DIR
                         (or the compiler's sysroot if not specified).
+  --with-ogg=PFX          Prefix where libogg is installed (optional)
+  --with-ogg-libraries=DIR
+                          Directory where libogg library is installed
+                          (optional)
+  --with-ogg-includes=DIR Directory where libogg header files are installed
+                          (optional)
+  --with-vorbis=PFX       Prefix where libvorbis is installed (optional)
+  --with-vorbis-libraries=DIR
+                          Directory where libvorbis library is installed
+                          (optional)
+  --with-vorbis-includes=DIR
+                          Directory where libvorbis header files are installed
+                          (optional)
 
 Some influential environment variables:
   CC          C compiler command
@@ -1411,6 +1448,10 @@ Some influential environment variables:
               path overriding pkg-config's built-in search path
   GLIB_CFLAGS C compiler flags for GLIB, overriding pkg-config
   GLIB_LIBS   linker flags for GLIB, overriding pkg-config
+  MAD_CFLAGS  C compiler flags for MAD, overriding pkg-config
+  MAD_LIBS    linker flags for MAD, overriding pkg-config
+  ID3_CFLAGS  C compiler flags for ID3, overriding pkg-config
+  ID3_LIBS    linker flags for ID3, overriding pkg-config
 
 Use these variables to override the choices made by `configure' or to help
 it to find libraries and programs with nonstandard names/locations.
@@ -11449,6 +11490,559 @@ else
 $as_echo "yes" >&6; }
 
 fi
+
+pkg_failed=no
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for MAD" >&5
+$as_echo_n "checking for MAD... " >&6; }
+
+if test -n "$MAD_CFLAGS"; then
+    pkg_cv_MAD_CFLAGS="$MAD_CFLAGS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"mad >= 0.15\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "mad >= 0.15") 2>&5
+  ac_status=$?
+  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+  test $ac_status = 0; }; then
+  pkg_cv_MAD_CFLAGS=`$PKG_CONFIG --cflags "mad >= 0.15" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes
+else
+  pkg_failed=yes
+fi
+ else
+    pkg_failed=untried
+fi
+if test -n "$MAD_LIBS"; then
+    pkg_cv_MAD_LIBS="$MAD_LIBS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"mad >= 0.15\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "mad >= 0.15") 2>&5
+  ac_status=$?
+  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+  test $ac_status = 0; }; then
+  pkg_cv_MAD_LIBS=`$PKG_CONFIG --libs "mad >= 0.15" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes
+else
+  pkg_failed=yes
+fi
+ else
+    pkg_failed=untried
+fi
+
+
+
+if test $pkg_failed = yes; then
+   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+
+if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
+        _pkg_short_errors_supported=yes
+else
+        _pkg_short_errors_supported=no
+fi
+        if test $_pkg_short_errors_supported = yes; then
+	        MAD_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "mad >= 0.15" 2>&1`
+        else
+	        MAD_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "mad >= 0.15" 2>&1`
+        fi
+	# Put the nasty error message in config.log where it belongs
+	echo "$MAD_PKG_ERRORS" >&5
+
+	as_fn_error $? "Package requirements (mad >= 0.15) were not met:
+
+$MAD_PKG_ERRORS
+
+Consider adjusting the PKG_CONFIG_PATH environment variable if you
+installed software in a non-standard prefix.
+
+Alternatively, you may set the environment variables MAD_CFLAGS
+and MAD_LIBS to avoid the need to call pkg-config.
+See the pkg-config man page for more details." "$LINENO" 5
+elif test $pkg_failed = untried; then
+     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
+$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
+as_fn_error $? "The pkg-config script could not be found or is too old.  Make sure it
+is in your PATH or set the PKG_CONFIG environment variable to the full
+path to pkg-config.
+
+Alternatively, you may set the environment variables MAD_CFLAGS
+and MAD_LIBS to avoid the need to call pkg-config.
+See the pkg-config man page for more details.
+
+To get pkg-config, see <http://pkg-config.freedesktop.org/>.
+See \`config.log' for more details" "$LINENO" 5; }
+else
+	MAD_CFLAGS=$pkg_cv_MAD_CFLAGS
+	MAD_LIBS=$pkg_cv_MAD_LIBS
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
+$as_echo "yes" >&6; }
+
+fi
+
+pkg_failed=no
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for ID3" >&5
+$as_echo_n "checking for ID3... " >&6; }
+
+if test -n "$ID3_CFLAGS"; then
+    pkg_cv_ID3_CFLAGS="$ID3_CFLAGS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"id3tag >= 0.15\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "id3tag >= 0.15") 2>&5
+  ac_status=$?
+  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+  test $ac_status = 0; }; then
+  pkg_cv_ID3_CFLAGS=`$PKG_CONFIG --cflags "id3tag >= 0.15" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes
+else
+  pkg_failed=yes
+fi
+ else
+    pkg_failed=untried
+fi
+if test -n "$ID3_LIBS"; then
+    pkg_cv_ID3_LIBS="$ID3_LIBS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"id3tag >= 0.15\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "id3tag >= 0.15") 2>&5
+  ac_status=$?
+  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+  test $ac_status = 0; }; then
+  pkg_cv_ID3_LIBS=`$PKG_CONFIG --libs "id3tag >= 0.15" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes
+else
+  pkg_failed=yes
+fi
+ else
+    pkg_failed=untried
+fi
+
+
+
+if test $pkg_failed = yes; then
+   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+
+if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
+        _pkg_short_errors_supported=yes
+else
+        _pkg_short_errors_supported=no
+fi
+        if test $_pkg_short_errors_supported = yes; then
+	        ID3_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "id3tag >= 0.15" 2>&1`
+        else
+	        ID3_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "id3tag >= 0.15" 2>&1`
+        fi
+	# Put the nasty error message in config.log where it belongs
+	echo "$ID3_PKG_ERRORS" >&5
+
+	as_fn_error $? "Package requirements (id3tag >= 0.15) were not met:
+
+$ID3_PKG_ERRORS
+
+Consider adjusting the PKG_CONFIG_PATH environment variable if you
+installed software in a non-standard prefix.
+
+Alternatively, you may set the environment variables ID3_CFLAGS
+and ID3_LIBS to avoid the need to call pkg-config.
+See the pkg-config man page for more details." "$LINENO" 5
+elif test $pkg_failed = untried; then
+     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
+$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
+as_fn_error $? "The pkg-config script could not be found or is too old.  Make sure it
+is in your PATH or set the PKG_CONFIG environment variable to the full
+path to pkg-config.
+
+Alternatively, you may set the environment variables ID3_CFLAGS
+and ID3_LIBS to avoid the need to call pkg-config.
+See the pkg-config man page for more details.
+
+To get pkg-config, see <http://pkg-config.freedesktop.org/>.
+See \`config.log' for more details" "$LINENO" 5; }
+else
+	ID3_CFLAGS=$pkg_cv_ID3_CFLAGS
+	ID3_LIBS=$pkg_cv_ID3_LIBS
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
+$as_echo "yes" >&6; }
+
+fi
+
+
+
+
+
+sr_have_ogg=no
+
+# Check whether --with-ogg was given.
+if test "${with_ogg+set}" = set; then :
+  withval=$with_ogg; ogg_prefix="$withval"
+else
+  ogg_prefix=""
+fi
+
+
+# Check whether --with-ogg-libraries was given.
+if test "${with_ogg_libraries+set}" = set; then :
+  withval=$with_ogg_libraries; ogg_libraries="$withval"
+else
+  ogg_libraries=""
+fi
+
+
+# Check whether --with-ogg-includes was given.
+if test "${with_ogg_includes+set}" = set; then :
+  withval=$with_ogg_includes; ogg_includes="$withval"
+else
+  ogg_includes=""
+fi
+
+# Check whether --enable-oggtest was given.
+if test "${enable_oggtest+set}" = set; then :
+  enableval=$enable_oggtest;
+else
+  enable_oggtest=yes
+fi
+
+
+  if test "x$ogg_libraries" != "x" ; then
+    OGG_LIBS="-L$ogg_libraries"
+  elif test "x$ogg_prefix" = "xno" || test "x$ogg_prefix" = "xyes" ; then
+    OGG_LIBS=""
+  elif test "x$ogg_prefix" != "x" ; then
+    OGG_LIBS="-L$ogg_prefix/lib"
+  elif test "x$prefix" != "xNONE" ; then
+    OGG_LIBS="-L$prefix/lib"
+  fi
+
+  if test "x$ogg_prefix" != "xno" ; then
+    OGG_LIBS="$OGG_LIBS -logg"
+  fi
+
+  if test "x$ogg_includes" != "x" ; then
+    OGG_CFLAGS="-I$ogg_includes"
+  elif test "x$ogg_prefix" = "xno" || test "x$ogg_prefix" = "xyes" ; then
+    OGG_CFLAGS=""
+  elif test "x$ogg_prefix" != "x" ; then
+    OGG_CFLAGS="-I$ogg_prefix/include"
+  elif test "x$prefix" != "xNONE"; then
+    OGG_CFLAGS="-I$prefix/include"
+  fi
+
+  { $as_echo "$as_me:${as_lineno-$LINENO}: checking for Ogg" >&5
+$as_echo_n "checking for Ogg... " >&6; }
+  if test "x$ogg_prefix" = "xno" ; then
+    no_ogg="disabled"
+    enable_oggtest="no"
+  else
+    no_ogg=""
+  fi
+
+
+  if test "x$enable_oggtest" = "xyes" ; then
+    ac_save_CFLAGS="$CFLAGS"
+    ac_save_LIBS="$LIBS"
+    CFLAGS="$CFLAGS $OGG_CFLAGS"
+    LIBS="$LIBS $OGG_LIBS"
+      rm -f conf.oggtest
+      if test "$cross_compiling" = yes; then :
+  echo $ac_n "cross compiling; assumed OK... $ac_c"
+else
+  cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ogg/ogg.h>
+
+int main ()
+{
+  system("touch conf.oggtest");
+  return 0;
+}
+
+
+_ACEOF
+if ac_fn_c_try_run "$LINENO"; then :
+
+else
+  no_ogg=yes
+fi
+rm -f core *.core core.conftest.* gmon.out bb.out conftest$ac_exeext \
+  conftest.$ac_objext conftest.beam conftest.$ac_ext
+fi
+
+       CFLAGS="$ac_save_CFLAGS"
+       LIBS="$ac_save_LIBS"
+  fi
+
+  if test "x$no_ogg" = "xdisabled" ; then
+     { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+
+$as_echo "#define HAVE_OGG_VORBIS 0" >>confdefs.h
+
+
+  elif test "x$no_ogg" = "x" ; then
+     { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
+$as_echo "yes" >&6; }
+
+
+# Check whether --with-vorbis was given.
+if test "${with_vorbis+set}" = set; then :
+  withval=$with_vorbis; vorbis_prefix="$withval"
+else
+  vorbis_prefix=""
+fi
+
+
+# Check whether --with-vorbis-libraries was given.
+if test "${with_vorbis_libraries+set}" = set; then :
+  withval=$with_vorbis_libraries; vorbis_libraries="$withval"
+else
+  vorbis_libraries=""
+fi
+
+
+# Check whether --with-vorbis-includes was given.
+if test "${with_vorbis_includes+set}" = set; then :
+  withval=$with_vorbis_includes; vorbis_includes="$withval"
+else
+  vorbis_includes=""
+fi
+
+# Check whether --enable-vorbistest was given.
+if test "${enable_vorbistest+set}" = set; then :
+  enableval=$enable_vorbistest;
+else
+  enable_vorbistest=yes
+fi
+
+
+  if test "x$vorbis_libraries" != "x" ; then
+    VORBIS_LIBS="-L$vorbis_libraries"
+  elif test "x$vorbis_prefix" = "xno" || test "x$vorbis_prefix" = "xyes" ; then
+    VORBIS_LIBS=""
+  elif test "x$vorbis_prefix" != "x" ; then
+    VORBIS_LIBS="-L$vorbis_prefix/lib"
+  elif test "x$prefix" != "xNONE"; then
+    VORBIS_LIBS="-L$prefix/lib"
+  fi
+
+  if test "x$vorbis_prefix" != "xno" ; then
+    VORBIS_LIBS="$VORBIS_LIBS -lvorbis -lm"
+  fi
+  VORBISFILE_LIBS="-lvorbisfile"
+  VORBISENC_LIBS="-lvorbisenc"
+
+  if test "x$vorbis_includes" != "x" ; then
+    VORBIS_CFLAGS="-I$vorbis_includes"
+  elif test "x$vorbis_prefix" = "xno" || test "x$vorbis_prefix" = "xyes" ; then
+    VORBIS_CFLAGS=""
+  elif test "x$vorbis_prefix" != "x" ; then
+    VORBIS_CFLAGS="-I$vorbis_prefix/include"
+  elif test "x$prefix" != "xNONE"; then
+    VORBIS_CFLAGS="-I$prefix/include"
+  fi
+
+
+  { $as_echo "$as_me:${as_lineno-$LINENO}: checking for Vorbis" >&5
+$as_echo_n "checking for Vorbis... " >&6; }
+  if test "x$vorbis_prefix" = "xno" ; then
+    no_vorbis="disabled"
+    enable_vorbistest="no"
+  else
+    no_vorbis=""
+  fi
+
+
+  if test "x$enable_vorbistest" = "xyes" ; then
+    ac_save_CFLAGS="$CFLAGS"
+    ac_save_LIBS="$LIBS"
+    CFLAGS="$CFLAGS $VORBIS_CFLAGS $OGG_CFLAGS"
+    LIBS="$LIBS $VORBIS_LIBS $VORBISENC_LIBS $OGG_LIBS"
+      rm -f conf.vorbistest
+      if test "$cross_compiling" = yes; then :
+  echo $ac_n "cross compiling; assumed OK... $ac_c"
+else
+  cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <vorbis/codec.h>
+#include <vorbis/vorbisenc.h>
+
+int main ()
+{
+    vorbis_block 	vb;
+    vorbis_dsp_state	vd;
+    vorbis_info		vi;
+
+    vorbis_info_init (&vi);
+    vorbis_encode_init (&vi, 2, 44100, -1, 128000, -1);
+    vorbis_analysis_init (&vd, &vi);
+    vorbis_block_init (&vd, &vb);
+    /* this function was added in 1.0rc3, so this is what we're testing for */
+    vorbis_bitrate_addblock (&vb);
+
+    system("touch conf.vorbistest");
+    return 0;
+}
+
+
+_ACEOF
+if ac_fn_c_try_run "$LINENO"; then :
+
+else
+  no_vorbis=yes
+fi
+rm -f core *.core core.conftest.* gmon.out bb.out conftest$ac_exeext \
+  conftest.$ac_objext conftest.beam conftest.$ac_ext
+fi
+
+       CFLAGS="$ac_save_CFLAGS"
+       LIBS="$ac_save_LIBS"
+  fi
+
+  if test "x$no_vorbis" = "xdisabled" ; then
+     { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+
+$as_echo "#define HAVE_OGG_VORBIS 0" >>confdefs.h
+
+  elif test "x$no_vorbis" = "x" ; then
+     { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
+$as_echo "yes" >&6; }
+
+
+
+
+
+
+$as_echo "#define HAVE_OGG_VORBIS 1" >>confdefs.h
+
+    sr_have_ogg=yes
+
+  else
+     { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+     if test -f conf.vorbistest ; then
+       :
+     else
+       echo "*** Could not run Vorbis test program, checking why..."
+       CFLAGS="$CFLAGS $VORBIS_CFLAGS"
+       LIBS="$LIBS $VORBIS_LIBS $OGG_LIBS"
+       cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+
+#include <stdio.h>
+#include <vorbis/codec.h>
+
+int
+main ()
+{
+ return 0;
+  ;
+  return 0;
+}
+_ACEOF
+if ac_fn_c_try_link "$LINENO"; then :
+   echo "*** The test program compiled, but did not run. This usually means"
+       echo "*** that the run-time linker is not finding Vorbis or finding the wrong"
+       echo "*** version of Vorbis. If it is not finding Vorbis, you'll need to set your"
+       echo "*** LD_LIBRARY_PATH environment variable, or edit /etc/ld.so.conf to point"
+       echo "*** to the installed location  Also, make sure you have run ldconfig if that"
+       echo "*** is required on your system"
+       echo "***"
+       echo "*** If you have an old version installed, it is best to remove it, although"
+       echo "*** you may also be able to get things to work by modifying LD_LIBRARY_PATH"
+else
+   echo "*** The test program failed to compile or link. See the file config.log for the"
+       echo "*** exact error that occured. This usually means Vorbis was incorrectly installed"
+       echo "*** or that you have moved Vorbis since it was installed."
+fi
+rm -f core conftest.err conftest.$ac_objext \
+    conftest$ac_exeext conftest.$ac_ext
+       CFLAGS="$ac_save_CFLAGS"
+       LIBS="$ac_save_LIBS"
+     fi
+     VORBIS_CFLAGS=""
+     VORBIS_LIBS=""
+     VORBISFILE_LIBS=""
+     VORBISENC_LIBS=""
+
+$as_echo "#define HAVE_OGG_VORBIS 0" >>confdefs.h
+
+  fi
+
+
+
+
+  rm -f conf.vorbistest
+
+  else
+     { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+     if test -f conf.oggtest ; then
+       :
+     else
+       echo "*** Could not run Ogg test program, checking why..."
+       CFLAGS="$CFLAGS $OGG_CFLAGS"
+       LIBS="$LIBS $OGG_LIBS"
+       cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+
+#include <stdio.h>
+#include <ogg/ogg.h>
+
+int
+main ()
+{
+ return 0;
+  ;
+  return 0;
+}
+_ACEOF
+if ac_fn_c_try_link "$LINENO"; then :
+   echo "*** The test program compiled, but did not run. This usually means"
+       echo "*** that the run-time linker is not finding Ogg or finding the wrong"
+       echo "*** version of Ogg. If it is not finding Ogg, you'll need to set your"
+       echo "*** LD_LIBRARY_PATH environment variable, or edit /etc/ld.so.conf to point"
+       echo "*** to the installed location  Also, make sure you have run ldconfig if that"
+       echo "*** is required on your system"
+       echo "***"
+       echo "*** If you have an old version installed, it is best to remove it, although"
+       echo "*** you may also be able to get things to work by modifying LD_LIBRARY_PATH"
+else
+   echo "*** The test program failed to compile or link. See the file config.log for the"
+       echo "*** exact error that occured. This usually means Ogg was incorrectly installed"
+       echo "*** or that you have moved Ogg since it was installed."
+fi
+rm -f core conftest.err conftest.$ac_objext \
+    conftest$ac_exeext conftest.$ac_ext
+       CFLAGS="$ac_save_CFLAGS"
+       LIBS="$ac_save_LIBS"
+     fi
+     OGG_CFLAGS=""
+     OGG_LIBS=""
+
+$as_echo "#define HAVE_OGG_VORBIS 0" >>confdefs.h
+
+
+  fi
+
+
+  rm -f conf.oggtest
+
+
 
 CPPFLAGS="-D__UNIX__"
 
