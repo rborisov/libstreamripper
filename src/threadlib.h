@@ -14,6 +14,8 @@ extern void threadlib_waitforclose(THREAD_HANDLE * thread);
 extern void threadlib_endthread(THREAD_HANDLE * thread);
 extern BOOL threadlib_sem_signaled(HSEM * e);
 
+extern void threadlib_exit_thread(void);
+
 extern HSEM threadlib_create_sem();
 extern error_code threadlib_waitfor_sem(HSEM * e);
 extern error_code threadlib_signal_sem(HSEM * e);

@@ -362,17 +362,21 @@ static void ripthread(void *thread_arg)
 		debug_printf("Gonna ripstream_rip\n");
 		ret = ripstream_rip(rmi);
 		debug_printf("Did ripstream_rip\n");
+		debug_printf("retval = %d %d\n",ret, SR_ERROR_ABORT_PIPE_SIGNALLED);
+		debug_printf("rmi started = %d\n",rmi->started);
 
 		if (!rmi->started) {
 			break;
 		} else if (rmi->megabytes_ripped >= rmi->prefs->maxMB_rip_size
 			   && GET_CHECK_MAX_BYTES(rmi->prefs->flags)) {
-			/* GCS Aug 23, 2003: bytes_ripped can still overflow */
+		  debug_printf("megabytes over threshold\n");
+		  /* GCS Aug 23, 2003: bytes_ripped can still overflow */
 			socklib_close(&rmi->stream_sock);
 			destroy_subsystems(rmi);
 			//post_error (rmi, SR_ERROR_MAX_BYTES_RIPPED);
 			break;
 		} else if (ret == SR_SUCCESS_BUFFERING) {
+		  debug_printf("buffering\n");
 			post_status(rmi, RM_STATUS_BUFFERING);
 			/* Fall through */
 		} else if (ret == SR_ERROR_CANT_DECODE_MP3) {
@@ -382,6 +386,7 @@ static void ripthread(void *thread_arg)
 			    ret == SR_ERROR_TIMEOUT ||
 			    ret == SR_ERROR_NO_TRACK_INFO ||
 			    ret == SR_ERROR_SELECT_FAILED) && GET_AUTO_RECONNECT(rmi->prefs->flags)) {
+		  debug_printf("try reconnect\n");
 			/* Try to reconnect */
 			post_status(rmi, RM_STATUS_RECONNECTING);
 			while (rmi->started) {
@@ -401,10 +406,14 @@ static void ripthread(void *thread_arg)
 			}
 			/* Fall through */
 		} else if (ret == SR_ERROR_ABORT_PIPE_SIGNALLED) {
+		  debug_printf("abort\n");
 			/* Normal exit condition CTRL-C on unix */
+			debug_printf("Destroying subsystems\n");
 			destroy_subsystems(rmi);
+			debug_printf("subsystems destroyed\n");
 			break;
 		} else if (ret != SR_SUCCESS) {
+		  debug_printf("something else\n");
 			destroy_subsystems(rmi);
 			post_error(rmi, ret);
 			break;
@@ -412,6 +421,7 @@ static void ripthread(void *thread_arg)
 
 		/* All systems go.  Caller should update GUI that it is ripping */
 		if (rmi->filesize > 0) {
+		  debug_printf("some status\n");
 			post_status(rmi, RM_STATUS_RIPPING);
 		}
 	}
@@ -420,9 +430,12 @@ static void ripthread(void *thread_arg)
 	// or we we're not auto-reconnecting and the stream just stopped
 	// or when we have been told to stop, via the rmi->started flag
  DONE:
+  debug_printf("we're done\n");
 	rmi->status_callback(rmi, RM_DONE, 0);
+	debug_printf("we're done 2\n");
 	rmi->started = 0;
 	debug_printf("ripthread() exiting!\n");
+	
 }
 
 void destroy_subsystems(RIP_MANAGER_INFO * rmi)

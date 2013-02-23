@@ -16,7 +16,7 @@ clean:
 	rm -rf incomplete
 
 test: all
-	./streamripper http://icecast.omroep.nl/radio4-bb-mp3.m3u -a test-%d
+	LD_LIBRARY_PATH=/usr/local/lib ./streamripper http://icecast.omroep.nl/radio4-bb-mp3.m3u -a test-%d
 	
 	
 	

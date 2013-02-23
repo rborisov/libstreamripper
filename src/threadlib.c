@@ -75,3 +75,7 @@ void threadlib_destroy_sem(HSEM * e)
 {
 	DestroyThread(*e);
 }
+
+void threadlib_exit_thread(void) {
+  ThreadExit();
+}

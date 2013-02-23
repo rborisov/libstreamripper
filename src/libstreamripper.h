@@ -35,4 +35,6 @@
 #include <sr/errors.h>
 #include <sr/rip_manager.h>
 
+void sr_debug_enable(void);
+
 #endif

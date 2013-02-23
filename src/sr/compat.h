@@ -73,6 +73,7 @@
                {_thandle_ = (THREAD_HANDLE)_beginthread((void*) callback, 0, (void*) arg);}
 #define WaitForThread(_thandle_)	WaitForSingleObject(_thandle_, INFINITE);
 #define DestroyThread(_thandle_)	CloseHandle(_thandle_)
+#define ThreadExit()  /* nothing to do here */
 
 #define HSEM			HANDLE
 #define	SemInit(_s_)	{_s_ = CreateEvent(NULL, TRUE, FALSE, NULL);}
@@ -85,10 +86,13 @@
 
 #define THREAD_HANDLE		pthread_t
 #define BeginThread(_thandle_, callback, arg) \
-               pthread_create(&_thandle_, NULL, \
-                          (void *)callback, (void *)arg)
+		{ pthread_attr_t attr; \
+		  pthread_attr_init(&attr); \
+   		  pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE); \
+                  pthread_create(&_thandle_, &attr, (void *)callback, (void *)arg); }
 #define WaitForThread(_thandle_)	pthread_join(_thandle_, NULL)
 #define DestroyThread(_thandle_)	// is there one for unix?
+#define ThreadExit()  pthread_exit((void *) NULL);
 #define HSEM		sem_t
 #define	SemInit(_s_)	sem_init(&(_s_), 0, 0)
 #define	SemWait(_s_)	sem_wait(&(_s_))

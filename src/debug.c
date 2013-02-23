@@ -45,6 +45,10 @@ static char filename_buf[SR_MAX_PATH];
 static char *default_filename = "gcs.txt";
 static int debug_initialized = 0;
 
+void sr_debug_enable(void) {
+  debug_enable();
+}
+
 void debug_set_filename(char *filename)
 {
 	sr_strncpy(filename_buf, filename, SR_MAX_PATH);
