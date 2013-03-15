@@ -1,4 +1,4 @@
-libgtklistmodel (%%VERSION%%.%%DISTRO%%.%%SUBVERSION%%) %%DISTRO%%; urgency=low
+libstreamripper (%%VERSION%%.%%DISTRO%%.%%SUBVERSION%%) %%DISTRO%%; urgency=low
 
   * Initial release 
 

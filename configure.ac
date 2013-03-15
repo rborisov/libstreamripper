@@ -1,7 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 dnl Created by Anjuta application wizard.
 
-AC_INIT(libstreamripper, 1.64.6-hod)
+AC_INIT(libstreamripper, 1.64.7)
 
 AC_CONFIG_HEADERS([config.h])
 

@@ -15,7 +15,7 @@ libstreamripperdoc_DATA = \
 
 EXTRA_DIST = $(libstreamripperdoc_DATA)
 
-CLEANFILES = $(shell find . -name "*~")
+#CLEANFILES = $(shell find . -name "*~")
 
 
 
