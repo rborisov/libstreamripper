@@ -9,4 +9,4 @@ Homepage: https://github.com/hoesterholt/libgtklistmodel
 Package: libstreamripper
 Architecture: any
 Depends: %%DEPENDS%%
-Description: a generic list model for GtkTreeView
+Description: a library for streamripper
