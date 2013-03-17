@@ -1,12 +1,12 @@
 VERSION=$(shell ./get_version.sh)
 MYDIST=$(shell cat /etc/lsb-release | grep CODENAME | sed -e 's/[^=]*[=]//')
-SUBVERSION=1
+SUBVERSION=3
 PACKAGE=libstreamripper
-DEPENDS=libglib-2.0-0,libmad0,libid3tag0,libvorbisfile3
+DEPENDS=libmad0,libid3tag0,libvorbisfile3
 DEPENDS1=
 BUILDDEPENDS=automake,autoconf,intltool,libpthread-stubs0-dev,pkg-config,libglib2.0-dev,libmad0-dev,libid3tag0-dev,libvorbis-dev
-DISTROS=natty oneiric precise quantal maverick lucid
-#DISTROS=precise
+#DISTROS=natty oneiric precise quantal 
+DISTROS=precise
 DISTROS1=maverick lucid
 DVERSION=${VERSION}.${DISTRO}.${SUBVERSION}
 UBUNTU=/tmp/libstreamripper_ppa
