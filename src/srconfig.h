@@ -4,9 +4,9 @@
 #if defined (WIN32)
 #include "confw32.h"
 #elif defined (HAVE_CONFIG_H)
-#include "../config.h"
+#include "config.h"
 #else
 /* Do something */
 #endif
 
-#endif				/* __SRCONFIG_H__ */
+#endif /* __SRCONFIG_H__ */

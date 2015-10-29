@@ -17,10 +17,10 @@
 #ifndef __external_h__
 #define __external_h__
 
-#include "sr/srtypes.h"
+#include "srtypes.h"
 
-External_Process *spawn_external(char *cmd);
-int read_external(RIP_MANAGER_INFO * rmi, External_Process * ep, TRACK_INFO * ti);
-void close_external(External_Process ** epp);
+External_Process* spawn_external (char* cmd);
+int read_external (RIP_MANAGER_INFO* rmi, External_Process* ep, TRACK_INFO* ti);
+void close_external (External_Process** epp);
 
 #endif

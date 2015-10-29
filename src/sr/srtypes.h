@@ -23,7 +23,7 @@
 #ifndef __SR_LIST_H__
 typedef struct list_head {
 	struct list_head *next, *prev;
-} LIST;
+} SRLIST;
 #endif
 
 #if WIN32
@@ -312,7 +312,7 @@ struct OGG_PAGE_LIST_struct {
 	unsigned long m_page_flags;
 	char *m_header_buf_ptr;
 	unsigned long m_header_buf_len;
-	LIST m_list;
+	SRLIST m_list;
 };
 
 typedef struct CBUF2_struct {
@@ -330,9 +330,9 @@ typedef struct CBUF2_struct {
 
 	HSEM cbuf_sem;
 
-	LIST metadata_list;
-	LIST ogg_page_list;
-	LIST frame_list;
+	SRLIST metadata_list;
+	SRLIST ogg_page_list;
+	SRLIST frame_list;
 } CBUF2;
 
 /* Each relay server gets this list of clients */
@@ -429,7 +429,9 @@ struct stream_prefs {
 	char output_directory[SR_MAX_PATH];	// base directory to output files too
 	char output_pattern[SR_MAX_PATH];	// filename pattern when ripping 
 	//  with splitting
-	char showfile_pattern[SR_MAX_PATH];	// filename base when ripping to
+	char incomplete_directory[SR_MAX_PATH]; //rborisov: added ability to change 
+                                                //incomplete folder
+    char showfile_pattern[SR_MAX_PATH];	// filename base when ripping to
 	//  single file without splitting
 	char if_name[SR_MAX_PATH];	// local interface to use
 	char rules_file[SR_MAX_PATH];	// file that holds rules for 
